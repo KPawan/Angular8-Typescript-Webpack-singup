@@ -1,6 +1,6 @@
 # Angular8-Typescript-Webpack-singup
 # SignUp Form
-
+Tested and verified in Chrome Browser, IE has few issues that needs to be fixed
 Do npm install
 To build the application use command npm run build  -- open with port 8888 with domain localhost -- localhost:8888
                                                        It helps in analysing the size of chunks and other permance measures
