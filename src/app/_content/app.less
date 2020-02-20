@@ -1,0 +1,87 @@
+// global application styles
+a {
+    cursor: pointer;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.head{
+	height: 100px;
+	width: 100%;
+}
+.box {
+    width: 600px;
+    padding: 40px;
+    background: #007eff3d;
+    text-align: center;
+    transition: 2s;
+    margin-top: 2rem;
+    border-radius: 18px;
+}
+
+.loader{
+    position: absolute;
+    top: 50%;
+}
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box label{
+	color: black;
+	margin: 25px auto;
+	font-weight: 700;
+    font-family: cursive;
+}
+.box .invalid-feedback{
+	text-align: left;
+	margin-left: 3rem;
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input[type="email"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.box .login {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    width: 250px;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box .login:hover {
+    background: #007bff;
+}
+

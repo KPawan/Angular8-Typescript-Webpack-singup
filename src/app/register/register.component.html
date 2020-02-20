@@ -1,0 +1,60 @@
+﻿<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="box container">
+    <h2 class="mb-5 text-left">Register yourself</h2>
+    <div class="form-group row">
+        <div class="col-4">
+            <label for="firstName">First Name</label>
+        </div>
+        <div class="col-8">
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <strong *ngIf="f.firstName.errors.required">First Name is required</strong>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            <label for="lastName">Last Name</label>
+        </div>
+        <div class="col-8">
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <strong *ngIf="f.lastName.errors.required">Last Name is required</strong>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            <label for="email">Email</label>
+            </div>
+            <div class="col-8">
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <strong *ngIf="f.email.errors.required">Email is required</strong>
+                <strong *ngIf="f.email.errors">Email is invalid</strong>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            <label for="password">Password</label>
+        </div>
+        <div class="col-8">
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted || f.password.errors && (f.password.value.toString().indexOf(f.firstName.value.toString()) != -1 || f.password.value.toString().indexOf(f.lastName.value.toString()) != -1)}" />
+            <strong *ngIf="!(f.password.value.toString().indexOf(f.firstName.value.toString()) != -1 || f.password.value.toString().indexOf(f.lastName.value.toString()) != -1)" class="invalid-feedback">
+                password should have atleast first or last name
+            </strong>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <strong *ngIf="f.password.errors.required">Password is required.</strong><br/>
+                <strong *ngIf="f.password.errors.minlength">Password must be at least 8 characters.</strong>
+                <strong *ngIf="f.password.errors">Password must have atleast 1 lower and upper case.</strong><br/> 
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary" class="login">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+</form>
